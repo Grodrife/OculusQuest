@@ -241,6 +241,7 @@ public class OVRGrabber : MonoBehaviour
         float closestMagSq = float.MaxValue;
         OVRGrabbable closestGrabbable = null;
         Collider closestGrabbableCollider = null;
+        transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
 
         // Iterate grab candidates and find the closest grabbable candidate
         foreach (OVRGrabbable grabbable in m_grabCandidates.Keys)
@@ -376,6 +377,7 @@ public class OVRGrabber : MonoBehaviour
 
             GrabbableRelease(linearVelocity, angularVelocity);
         }
+        transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
 
         // Re-enable grab volumes to allow overlap events
         GrabVolumeEnable(true);
